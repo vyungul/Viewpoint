@@ -129,8 +129,8 @@ module Viewpoint::EWS::SOAP
       end
       req = build_soap! do |type, builder|
         attribs = {}
-        attribs['MessageDisposition'] = opts[:message_disposition] if opts[:message_disposition]
-        attribs['SendMeetingInvitations'] = opts[:send_meeting_invitations] if opts[:send_meeting_invitations]
+        attribs['MessageDisposition'] = 'SendAndSaveCopy'
+        attribs['SendMeetingInvitations'] = 'SendToAllAndSaveCopy'
         if(type == :header)
         else
           builder.nbuild.CreateItem(attribs) {
